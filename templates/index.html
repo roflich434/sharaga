@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <meta name="darkreader-lock">
+    <title>Погода</title>
+    <link rel="stylesheet" href="/static/style.css?v=7">
+    <link rel="stylesheet" href="/static/animations.css?v=7">
+</head>
+<body>
+    <!-- Анимированный градиент -->
+    <div class="gradient-bg" id="gradientBg"></div>
+    
+    <!-- Размытое отражение (режим 1) -->
+    <div id="bg-blur"></div>
+    
+    <!-- Основная картинка по центру -->
+    <div id="bg-main"></div>
+    
+    <!-- Статичный чёрный фон (режим 2) -->
+    <div id="bg-black"></div>
+    
+    <!-- Затемнение -->
+    <div id="bg-overlay"></div>
+    
+    <!-- Анимации погоды -->
+    <div class="bg-scene" id="bgScene"></div>
+    
+    <div class="clock-widget">
+        <div class="clock-time" id="clockTime">00:00:00</div>
+        <div class="clock-date" id="clockDate"></div>
+    </div>
+
+    <!-- Кнопка скрытия погоды (правый верхний) -->
+    <button class="toggle-weather-btn" id="toggleWeatherBtn" title="Скрыть/показать погоду">
+        <span id="toggleIcon">🌤</span>
+    </button>
+
+    <!-- Кнопка переключения фона (левый нижний) -->
+    <button class="toggle-bg-btn" id="toggleBgBtn" title="Сменить фон">
+        <span id="bgModeIcon">🌈</span>
+    </button>
+    
+    <div class="container" id="weatherContainer">
+        <header>
+            <h1>🌤 Погода</h1>
+            <div class="city-picker" id="cityPicker">
+                {% for c in cities %}
+                    <button class="city-btn" data-city="{{ c }}">{{ c }}</button>
+                {% endfor %}
+            </div>
+        </header>
+        <div id="weather" class="weather-grid">
+            <div class="loading">Загружаю прогноз...</div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="quizModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">✕</button>
+            <h2 id="quizTitle">🎭 Опрос</h2>
+            <div class="quiz-progress">
+                <div class="quiz-progress-bar" id="progressBar"></div>
+            </div>
+            <div class="quiz-counter" id="quizCounter"></div>
+            <div id="quizContainer"></div>
+            <button class="next-btn" id="nextBtn" disabled>Далее →</button>
+        </div>
+    </div>
+
+    <script src="/static/script.js?v=7"></script>
+</body>
+</html>

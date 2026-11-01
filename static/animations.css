@@ -1,0 +1,142 @@
+.sun {
+    position: absolute; top: 60px; right: 80px;
+    width: 120px; height: 120px;
+    background: radial-gradient(circle, #fff5a0 0%, #ffd700 60%, #ff9500 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 60px #ffd700, 0 0 120px rgba(255,215,0,0.5);
+    animation: sunPulse 4s ease-in-out infinite;
+}
+.sun::before {
+    content: ''; position: absolute; inset: -30px;
+    background: conic-gradient(from 0deg, transparent 0deg, rgba(255,215,0,0.4) 10deg, transparent 20deg,
+        transparent 40deg, rgba(255,215,0,0.4) 50deg, transparent 60deg,
+        transparent 80deg, rgba(255,215,0,0.4) 90deg, transparent 100deg,
+        transparent 120deg, rgba(255,215,0,0.4) 130deg, transparent 140deg,
+        transparent 160deg, rgba(255,215,0,0.4) 170deg, transparent 180deg,
+        transparent 200deg, rgba(255,215,0,0.4) 210deg, transparent 220deg,
+        transparent 240deg, rgba(255,215,0,0.4) 250deg, transparent 260deg,
+        transparent 280deg, rgba(255,215,0,0.4) 290deg, transparent 300deg,
+        transparent 320deg, rgba(255,215,0,0.4) 330deg, transparent 340deg);
+    border-radius: 50%;
+    animation: sunRotate 30s linear infinite;
+}
+@keyframes sunPulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.05);} }
+@keyframes sunRotate { to{transform:rotate(360deg);} }
+
+.cloud {
+    position: absolute;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50px;
+    filter: blur(1px);
+    will-change: transform;
+    animation-fill-mode: both;
+    top: 0; left: 0;
+}
+.cloud::before, .cloud::after {
+    content: ''; position: absolute; background: inherit; border-radius: 50%;
+}
+.cloud::before { width: 60%; height: 140%; top: -50%; left: 15%; }
+.cloud::after  { width: 45%; height: 120%; top: -30%; right: 15%; }
+.cloud-1 { width: 180px; height: 60px; top: 15%; animation: drift1 35s linear infinite; }
+.cloud-2 { width: 140px; height: 45px; top: 35%; animation: drift2 50s linear infinite; opacity: 0.7; }
+.cloud-3 { width: 200px; height: 65px; top: 55%; animation: drift3 45s linear infinite; }
+.dark-cloud { background: rgba(60,70,90,0.95); }
+@keyframes drift1 { 0%{transform:translateX(-250px);} 100%{transform:translateX(calc(100vw + 300px));} }
+@keyframes drift2 { 0%{transform:translateX(calc(100vw + 300px));} 100%{transform:translateX(-250px);} }
+@keyframes drift3 { 0%{transform:translateX(-300px);} 100%{transform:translateX(calc(100vw + 350px));} }
+
+.rain-drop {
+    position: absolute;
+    width: 3px; height: 22px;
+    background: linear-gradient(to bottom, transparent, #7ec8ff 40%, #a8d8ff 100%);
+    border-radius: 3px;
+    animation: fall linear infinite;
+    will-change: transform;
+    box-shadow: 0 0 6px rgba(126,200,255,0.6);
+    opacity: 0.9;
+}
+@keyframes fall {
+    0%{transform:translateY(-30px);opacity:0;} 10%{opacity:1;} 80%{opacity:0.9;} 100%{transform:translateY(100vh);opacity:0.4;}
+}
+
+.snowflake {
+    position: absolute;
+    color: #fff; font-size: 14px;
+    text-shadow: 0 0 5px rgba(255,255,255,0.8);
+    animation: snowfall linear infinite;
+    will-change: transform;
+}
+@keyframes snowfall {
+    0%{transform:translateY(-20px) translateX(0) rotate(0deg);opacity:0;} 10%{opacity:1;} 100%{transform:translateY(100vh) translateX(50px) rotate(360deg);opacity:0.5;}
+}
+
+.lightning {
+    position: absolute; inset: 0;
+    background: rgba(255,255,255,0.9);
+    opacity: 0;
+    animation: flash 6s infinite;
+    pointer-events: none;
+}
+@keyframes flash { 0%,92%,94%,96%,100%{opacity:0;} 93%{opacity:0.8;} 95%{opacity:0.4;} }
+
+.fog-layer {
+    position: absolute; left: 0; right: 0; height: 30%;
+    background: linear-gradient(to top, rgba(255,255,255,0.4), transparent);
+    animation: fogMove 20s ease-in-out infinite alternate;
+    will-change: transform;
+}
+@keyframes fogMove { from{transform:translateX(-5%);} to{transform:translateX(5%);} }
+
+.mini-icon { width: 50px; height: 50px; position: relative; }
+.mini-sun {
+    width: 40px; height: 40px;
+    background: radial-gradient(circle, #fff5a0, #ffd700);
+    border-radius: 50%;
+    box-shadow: 0 0 15px #ffd700;
+    animation: sunPulse 3s ease-in-out infinite;
+}
+.mini-cloud {
+    width: 45px; height: 18px;
+    background: #dfe6ee; border-radius: 20px;
+    position: relative;
+}
+.mini-cloud::before, .mini-cloud::after {
+    content: ''; position: absolute; background: inherit; border-radius: 50%;
+}
+.mini-cloud::before { width: 22px; height: 22px; top: -10px; left: 8px; }
+.mini-cloud::after { width: 16px; height: 16px; top: -5px; right: 8px; }
+.mini-rain .mini-cloud { background: #8a99a8; }
+.mini-rain .mini-cloud::before, .mini-rain .mini-cloud::after { background: #8a99a8; }
+.mini-rain-drops { position: absolute; bottom: -12px; left: 5px; width: 35px; height: 12px; }
+.mini-rain-drops span {
+    position: absolute; width: 3px; height: 10px;
+    background: #6bb6ff; border-radius: 2px;
+    animation: miniFall 1s linear infinite;
+    box-shadow: 0 0 4px rgba(107,182,255,0.5);
+}
+.mini-rain-drops span:nth-child(1) { left: 5px; animation-delay: 0s; }
+.mini-rain-drops span:nth-child(2) { left: 15px; animation-delay: 0.3s; }
+.mini-rain-drops span:nth-child(3) { left: 25px; animation-delay: 0.6s; }
+@keyframes miniFall { 0%{transform:translateY(-5px);opacity:0;} 50%{opacity:1;} 100%{transform:translateY(10px);opacity:0;} }
+
+.mini-snow span {
+    position: absolute; color: #fff; font-size: 10px;
+    animation: miniSnow 2s linear infinite;
+}
+.mini-snow span:nth-child(1) { left: 5px; animation-delay: 0s; }
+.mini-snow span:nth-child(2) { left: 18px; animation-delay: 0.5s; }
+.mini-snow span:nth-child(3) { left: 30px; animation-delay: 1s; }
+@keyframes miniSnow { 0%{transform:translateY(-5px);opacity:0;} 50%{opacity:1;} 100%{transform:translateY(15px);opacity:0;} }
+
+.mini-bolt {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffeb3b; font-size: 24px;
+    text-shadow: 0 0 10px #ffeb3b;
+    animation: boltFlash 2s infinite;
+}
+@keyframes boltFlash { 0%,90%,100%{opacity:0;} 92%,96%{opacity:1;} }
+
+@keyframes cloudFloat {
+    0%,100%{transform:translateX(0) translateY(0);} 50%{transform:translateX(3px) translateY(-3px);}
+}
