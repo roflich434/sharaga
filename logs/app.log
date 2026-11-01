@@ -1,0 +1,27 @@
+2026-11-02 01:28:51 | INFO | === Server started ===
+2026-11-02 01:28:58 | INFO | GET / from 127.0.0.1
+2026-11-02 01:28:58 | INFO | GET /static/style.css from 127.0.0.1
+2026-11-02 01:28:58 | INFO | GET /static/animations.css from 127.0.0.1
+2026-11-02 01:28:58 | INFO | GET /static/script.js from 127.0.0.1
+2026-11-02 01:28:58 | INFO | POST /api/log from 127.0.0.1
+2026-11-02 01:28:58 | INFO | USER_ACTION | page_open | Москва
+2026-11-02 01:28:58 | INFO | POST /api/log from 127.0.0.1
+2026-11-02 01:28:58 | INFO | USER_ACTION | bg_mode_changed | gradient
+2026-11-02 01:28:58 | INFO | GET /api/weather from 127.0.0.1
+2026-11-02 01:28:58 | INFO | Requesting weather from wttr.in for Москва
+2026-11-02 01:28:58 | INFO | GET /static/zadnik/666.jpg from 127.0.0.1
+2026-11-02 01:28:58 | INFO | GET /static/zadnik/5454545.jpg from 127.0.0.1
+2026-11-02 01:28:58 | INFO | GET /static/zadnik/4343423211.jpg from 127.0.0.1
+2026-11-02 01:28:58 | INFO | POST /api/log from 127.0.0.1
+2026-11-02 01:28:58 | INFO | USER_ACTION | background_changed | /static/zadnik/666.jpg
+2026-11-02 01:28:58 | INFO | Fetched 3 days for Москва from wttr.in
+2026-11-02 01:28:59 | INFO | POST /api/log from 127.0.0.1
+2026-11-02 01:28:59 | INFO | USER_ACTION | tab_hidden | 
+2026-11-02 01:29:00 | INFO | POST /api/log from 127.0.0.1
+2026-11-02 01:29:00 | INFO | USER_ACTION | tab_visible | 
+2026-11-02 01:29:03 | INFO | POST /api/log from 127.0.0.1
+2026-11-02 01:29:03 | INFO | USER_ACTION | quiz_started | Викторина по веб-разработке
+2026-11-02 01:29:03 | INFO | POST /api/log from 127.0.0.1
+2026-11-02 01:29:03 | INFO | USER_ACTION | quiz_modal_shown | shuffled questions
+2026-11-02 01:29:06 | INFO | POST /api/log from 127.0.0.1
+2026-11-02 01:29:06 | INFO | USER_ACTION | tab_hidden | 

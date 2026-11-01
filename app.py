@@ -9,8 +9,8 @@ app = Flask(__name__)
 
 # ===== ЗАЩИТА ОТ DDOS / НАГРУЗКИ =====
 request_counts = {}
-MAX_REQUESTS_PER_MINUTE = 30
-BAN_TIME = 60  # секунд бана
+MAX_REQUESTS_PER_MINUTE = 1000
+BAN_TIME = 60
 
 @app.before_request
 def rate_limit():
